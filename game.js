@@ -1,4 +1,4 @@
-const boardSize = 5;
+const boardSize = 35;
 const initialAssets = 100;
 const facilityCost = 20;
 const gameBoard = document.getElementById('gameBoard');
