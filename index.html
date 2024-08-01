@@ -3,69 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高度な戦略ゲーム</title>
+    <title>戦略シミュレーションゲーム</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
+
         #gameBoard {
             display: grid;
-            grid-template-columns: repeat(5, 50px);
-            grid-gap: 2px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2px;
+            margin-bottom: 20px;
         }
+
         .cell {
-            width: 50px;
-            height: 50px;
-            background-color: #ddd;
-            border: 1px solid #aaa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #eee;
+            border: 1px solid #ccc;
             cursor: pointer;
         }
-        .cell.selected {
-            background-color: #bbb;
-        }
+
         .cell.unit {
             background-color: #f00;
         }
+
         .cell.ship {
             background-color: #00f;
         }
+
         .cell.country {
             background-color: #0f0;
         }
+
         .cell.fort {
             background-color: #ff0;
         }
-        #status {
-            margin-top: 10px;
+
+        .cell.selected {
+            border: 2px solid #000;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <h1>高度な戦略ゲーム</h1>
+    <h1>戦略シミュレーションゲーム</h1>
     <div id="gameBoard"></div>
-    <div id="status">選択中の国: なし / ユニット数: 0 / 船数: 0 / 国数: 0 / 要塞数: 0 / 国家資産: 100</div>
-    <button id="resetButton">ゲームリセット</button>
-    <button id="addCountryButton">国を追加</button>
-    <button id="addShipButton">船を追加</button>
-    <button id="updatePoliciesButton">政策を更新</button>
-    <button id="declareWarButton">戦争を宣言</button>
-    <button id="manageDiplomacyButton">外交関係を管理</button>
-    <button id="manageEconomyButton">経済を管理</button>
-    <button id="manageMilitaryButton">軍隊を編成</button>
-    <button id="researchTechButton">技術を研究</button>
-    <button id="setGovernmentButton">政府形態を設定</button>
-    <button id="propagandaButton">プロパガンダを行う</button>
-    <button id="triggerEventButton">イベントを発生させる</button>
-    <button id="buildFacilityButton">施設を追加</button>
-    <button id="createFortButton">要塞を作る</button>
-    <button id="commandCountryButton">国に命令</button>
-    <button id="manageAssetsButton">国家資産を管理</button>
-    <button id="handleArmyDeathButton">軍隊の死亡</button>
-    <button id="handleNationCollapseButton">滅亡</button>
-    <button id="switchCountryButton">国を切り替える</button>
+    <div id="status">現在の国: なし, 資産: 0</div>
+    <div>
+        <button id="resetButton">リセット</button>
+        <button id="addCountryButton">国を追加</button>
+        <button id="addShipButton">艦船を追加</button>
+        <button id="updatePoliciesButton">政策を更新</button>
+        <button id="declareWarButton">戦争を宣言</button>
+        <button id="manageDiplomacyButton">外交を管理</button>
+        <button id="manageEconomyButton">経済を管理</button>
+        <button id="manageMilitaryButton">軍事を管理</button>
+        <button id="researchTechButton">技術を研究</button>
+        <button id="setGovernmentButton">政府を設定</button>
+        <button id="propagandaButton">宣伝活動</button>
+        <button id="triggerEventButton">イベント発生</button>
+        <button id="buildFacilityButton">施設を建設</button>
+        <button id="createFortButton">要塞を建設</button>
+        <button id="commandCountryButton">国を指揮</button>
+        <button id="manageAssetsButton">資産を管理</button>
+        <button id="handleArmyDeathButton">軍隊の死亡処理</button>
+        <button id="handleNationCollapseButton">国の崩壊処理</button>
+        <button id="switchCountryButton">国を切り替え</button>
+    </div>
     <script src="game.js"></script>
 </body>
 </html>
